@@ -1,7 +1,10 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
-    render :index
+    if params[:sort_by] == "rating"
+      @movies = Movie.all.sort_by{|object| [object.rating]}.reverse
+    else
+      @movies = Movie.all
+    end
   end
 
   def show

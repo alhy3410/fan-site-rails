@@ -6,4 +6,6 @@
   <% end %>
 </ul>
 
+<%= link_to 'Sort by rating', movies_path(@movie, :sort_by => "rating"), method: :get %>
+
 <p><%= link_to "Add a movie", new_movie_path %></p>
