@@ -1,0 +1,9 @@
+<h1>Jim Carrey Movies</h1>
+
+<ul>
+  <% @movies.each do |movie| %>
+  <li><%= link_to movie.name, movie_path(movie) %></li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Add a movie", new_movie_path %></p>

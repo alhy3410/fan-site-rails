@@ -1,0 +1,15 @@
+<%= render "layouts/errors", :object => @movie %>
+
+<%= form_for @movie do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :rating %>
+<%= f.text_field :rating %>
+<%= f.label :year %>
+<%= f.text_field :year %>
+<%= f.label :genre %>
+<%= f.text_field :genre %>
+<%= f.label :length %>
+<%= f.text_field :length %>
+<button type='submit'>Add Movie</button>
+<% end %> 

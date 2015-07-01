@@ -1,0 +1,8 @@
+<% if @movie.errors.any? %>
+<h3>Oops there were some errors. Please try again: </h3>
+<ul>
+  <% @movie.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
