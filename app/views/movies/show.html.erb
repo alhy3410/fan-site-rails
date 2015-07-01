@@ -5,8 +5,27 @@
 <h3>Length(minutes): <%= @movie.length %></h3>
 
 <p><%= link_to "Edit", edit_movie_path(@movie) %></p>
-<p><%= link_to "Delete", list_path(@movie),
+<p><%= link_to "Delete", movie_path(@movie),
                         :data => {:confirm => "Are you sure you want to delete this movie?",
                                   :method =>"Delete"} %></p>
+<% if @movie.comments.any? %>
+  <h4>Comments for <%= @movie.name %> </h4>
+
+  <ul>
+    <% @movie.comments.each do |comment| %>
+    <li>
+      <%= comment.author %> | <%= comment.comment %>
+      <%= link_to 'Edit', edit_movie_comment_path(@movie, comment) %>|
+      <%= link_to 'Delete', movie_comment_path(@movie, comment),
+                            :data => {:confirm => "Are you sure you want to delete this comment?",
+                                      :method => "Delete"} %>
+    </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no comments yet!</p>
+<% end %>
+
+<p><%= link_to "Add a comment", new_movie_comment_path(@movie) %></p>
 
 <p><%= link_to "Return to all Movies", movies_path %></p>

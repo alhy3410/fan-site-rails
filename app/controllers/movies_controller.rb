@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
     @movie.destroy
     redirect_to movies_path
   end
-  
+
 
   private
   def movie_params
